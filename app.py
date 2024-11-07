@@ -3,17 +3,13 @@ from mysql.connector.pooling import MySQLConnectionPool
 from mysql.connector import Error, connect
 import json
 from datetime import date, timedelta
+from config import HOST, USERNAME, PASSWORD, DATABASE, SECRET_KEY
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"  # Needed for Flash msgs
+app.secret_key = SECRET_KEY  # Needed for Flash msgs
 
 # Database config
-db_config = {
-    'host': 'lifelink-db.c9cwe48c8hnl.ap-southeast-2.rds.amazonaws.com',
-    'user': 'admin',
-    'password': 'lifelink',
-    'database': 'lifelink-db'
-}
+db_config = { 'host': HOST, 'user': USERNAME, 'password': PASSWORD, 'database': DATABASE }
 
 cnxpool = MySQLConnectionPool(pool_name="mypool",pool_size=16,**db_config)
 
@@ -514,4 +510,4 @@ def status():
     return render_template('status.html')  # Success message page
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=5000)
