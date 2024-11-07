@@ -9,10 +9,10 @@ app.secret_key = "your_secret_key"  # Needed for Flash msgs
 
 # Database config
 db_config = {
-    'host': '127.0.0.1',
-    'user': 'manager',
-    'password': 'bloodbridge',
-    'database': 'bloodbank'
+    'host': 'lifelink-db.c9cwe48c8hnl.ap-southeast-2.rds.amazonaws.com',
+    'user': 'admin',
+    'password': 'lifelink',
+    'database': 'lifelink-db'
 }
 
 cnxpool = MySQLConnectionPool(pool_name="mypool",pool_size=16,**db_config)
