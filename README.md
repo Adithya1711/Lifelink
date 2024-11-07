@@ -1,5 +1,9 @@
 # Lifelink
 
+CREATE DATABASE lifelink;
+
+USE lifelink;
+
 -- Table: users
 
 CREATE TABLE users (
@@ -60,7 +64,7 @@ CREATE TABLE scheduled_events (
     FOREIGN KEY (event_id) REFERENCES event(event_id)
 );
 
--- Filling up inventory
+-- Filling up inventory to simulate real life blood storage
 
 INSERT INTO inventory (blood_type, units) VALUES
     ('A+', 0),
@@ -94,7 +98,8 @@ INSERT INTO event (name, date, place) VALUES
 
 
 
-EC2 Commands(use this commands only the first time when accessing the EC2)
+
+# Instance Commands
 
 sudo yum update -y
 
